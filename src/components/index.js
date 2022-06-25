@@ -1,3 +1,3 @@
-import Line from './apexcharts/Line';
+import LineChart from './apexcharts/LineChart';
 
-export { Line };
+export { LineChart };
