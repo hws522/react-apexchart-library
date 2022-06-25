@@ -10,6 +10,16 @@
     "url": "URL_OF_YOUR_REPOSITORY"
   },
   "name": "react-apexchart-library",
+  "author": {
+    "name": "hws522",
+    "email": "sraphic@kakao.com"
+  },
+  "keywords": [
+    "tutorial",
+    "react",
+    "charts",
+    "apexcharts"
+  ],
   "version": "0.1.2",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
