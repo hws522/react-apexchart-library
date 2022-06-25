@@ -72,5 +72,37 @@ This will render the following chart.
 ![image](https://user-images.githubusercontent.com/59306143/175777172-2c8a87ad-78e0-4bca-a5a7-3dabeadfef0e.png)
 
 <br>
+<br>
 
 ## Props
+
+| Prop                    | Type             | Default                                                 | Description                                         |
+| :---------------------- | ---------------- | ------------------------------------------------------- | --------------------------------------------------- |
+| **chartSeries**         | Array            | []                                                      | chart data series                                   |
+| **chartHeight**         | Number/String    | '500px'                                                 | chart height                                        |
+| **chartWidth**          | Number/String    | '100%'                                                  | chart width                                         |
+| **backgroundColor**     | String           | '#fff'                                                  | chart background color                              |
+| **offsetX**             | Number           | 0                                                       | chart offset X Axis                                 |
+| **offsetY**             | Number           | 0                                                       | chart offset Y Axis                                 |
+| **sparkLine**           | Boolean          | false                                                   | Helps to visualize data in small areas              |
+| **title**               | String/Undefined | undefined                                               | chart title                                         |
+| **titleStyle**          | Object           | fontSize, fontWeight, color ...etc                      | chart title style                                   |
+| **dataLabelEnabled**    | Boolean          | true                                                    | chart label                                         |
+| **dataLabelString**     | String           | ''                                                      | chart label suffix                                  |
+| **dataLabelAnchor**     | String           | 'middle'                                                | chart label anchor position                         |
+| **dataLabelTextStyle**  | Object           | fontSize, fontWeight, color ...etc                      | chart label style                                   |
+| **dataLabelBackground** | Array            | [true, '#fff', '#fff']                                  | [used/unused, foreColor, borderColor]               |
+| **dataLabelTextShadow** | Array            | [false, '#000', 0.45]                                   | [enabled, color, opacity]                           |
+| **chartLegend**         | Array            | [true, 'top', 'center', 0, 0]                           | [show, position, horizontalAlign, offsetX, offsetY] |
+| **chartMarker**         | Array            | [0, 'circle']                                           | [size, shape]                                       |
+| **chartNodata**         | Array            | [undefined, 'middle', 0, 0, 14]                         | [text, verticalAlign, offsetX, offsetY, fontSize]   |
+| **chartStroke**         | Array            | [true, 'straight', 2, 0]                                | [show, curve, width, dashArray]                     |
+| **chartSubtitle**       | Array            | [undefined, 'center', 0, 0, 12, '#9699a2']              | [text, align, offsetX, offsetY, color]              |
+| **tooltipOptions**      | Array            | [true, true, false, 'light', 12]                        | [enabled, shared, fillSeriesColor, theme, fontSize] |
+| **tooltipXAxis**        | Array            | [true, 'dd MMM']                                        | [show, format]                                      |
+| **tooltipYAxis**        | Array            | ['']                                                    | [tooltip y axis suffix]                             |
+| **XAxisOptions**        | Array            | ['on', 'bottom', false]                                 | [tickPlacement, position, tooltip enabled]          |
+| **colorSet**            | Array            | ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'] | color format                                        |
+| **toolbarOptions**      | Object           | show, offsetX, offsetY, ... etc                         |                                                     |
+| **zoomOptions**         | Object           | enabled, type, autoScaleYaxis, ... etc                  |                                                     |
+

@@ -186,14 +186,6 @@ const LineChart = ({
                             fontFamily: undefined
                         }
                     },
-                    stroke: {
-                        show: true,
-                        curve: 'smooth',
-                        lineCap: 'butt',
-                        colors: undefined,
-                        width: 2,
-                        dashArray: 0,
-                    },
                     colors: colorSet,
                     stroke: {
                         show: chartStroke[0],
