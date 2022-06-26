@@ -1,5 +1,10 @@
 # react-apexchart-library
 
+![npm](https://img.shields.io/npm/dt/react-apexchart-library)
+![npm](https://img.shields.io/npm/v/react-apexchart-library)
+
+<br>
+
 react + apexchart 를 쉽게 시작하기 위해 제작했습니다.
 
 Easy to get started with react + apexchart.
