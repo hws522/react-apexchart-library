@@ -1,4 +1,5 @@
 import LineChart from "./components/apexcharts/LineChart";
+import BarChart from "./components/apexcharts/BarChart";
 
 function App() {
   const chartSeries = [
@@ -14,7 +15,7 @@ function App() {
   const categories = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'];
   return (
     <>
-      <LineChart
+      <BarChart
         chartSeries={chartSeries}
         categories={categories}
       />
