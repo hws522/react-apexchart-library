@@ -6,9 +6,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart is currently updated.
 
 <br>
 <br>
@@ -24,7 +24,7 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import {LineChart} from 'react-apexchart-library'
+import { LineChart } from 'react-apexchart-library'
 ```
 
 
@@ -105,4 +105,23 @@ This will render the following chart.
 | **colorSet**            | Array            | ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'] | color format                                        |
 | **toolbarOptions**      | Object           | show, offsetX, offsetY, ... etc                         |                                                     |
 | **zoomOptions**         | Object           | enabled, type, autoScaleYaxis, ... etc                  |                                                     |
+
+<br>
+
+
+
+## Chart PlotOptions Props
+
+<br>
+
+### BarChart
+
+| Prop                   | Type    | Default               | Description                                   |
+| ---------------------- | ------- | --------------------- | --------------------------------------------- |
+| **barHorizontal**      | Boolean | false                 | Bar chart type Horizontal or Vertical         |
+| **barBorderRadius**    | Number  | 0                     | Bar Border Radius                             |
+| **barColumnWidth**     | String  | '70%'                 | Bar width                                     |
+| **barRangeColor**      | Array   | [0, 0, undefined]     | [range from, range to, color]                 |
+| **barBackgroundStyle** | Array   | [[], 1, 0]            | [['color',...], opacity, radius]              |
+| **barDataLabels**      | Array   | ['top', 'horizontal'] | [data label position, data label orientation] |
 
