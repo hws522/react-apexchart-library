@@ -1,5 +1,7 @@
 # react-apexchart-library
 
+<br>
+
 ![npm](https://img.shields.io/npm/dt/react-apexchart-library)
 ![npm](https://img.shields.io/npm/v/react-apexchart-library)
 
@@ -29,7 +31,7 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import { LineChart } from 'react-apexchart-library'
+import {LineChart, BarChart, AreaChart} from 'react-apexchart-library'
 ```
 
 
@@ -53,10 +55,9 @@ function App() {
     }
   ];
   const categories = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'];
-  
   return (
     <>
-      <LineChart
+      <LineChart // or <BarChart />, <AreaChart /> ... etc
         chartSeries={chartSeries}
         categories={categories}
       />
@@ -129,4 +130,18 @@ This will render the following chart.
 | **barRangeColor**      | Array   | [0, 0, undefined]     | [range from, range to, color]                 |
 | **barBackgroundStyle** | Array   | [[], 1, 0]            | [['color',...], opacity, radius]              |
 | **barDataLabels**      | Array   | ['top', 'horizontal'] | [data label position, data label orientation] |
+
+
+
+<br>
+
+### AreaChart
+
+| Prop           | Type   | Default  | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| **areaFillTo** | String | 'origin' | 'origin' or 'end' : When negative values are present in the area chart, fill the area |
+
+
+
+<br>
 
