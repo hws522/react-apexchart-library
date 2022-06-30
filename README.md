@@ -106,8 +106,9 @@ This will render the following chart.
 | **chartSubtitle**       | Array            | [undefined, 'center', 0, 0, 12, '#9699a2']              | [text, align, offsetX, offsetY, color]              |
 | **tooltipOptions**      | Array            | [true, true, false, 'light', 12]                        | [enabled, shared, fillSeriesColor, theme, fontSize] |
 | **tooltipXAxis**        | Array            | [true, 'dd MMM']                                        | [show, format]                                      |
-| **tooltipYAxis**        | Array            | ['']                                                    | [tooltip y axis suffix]                             |
+| **tooltipYAxis**        | Array            | ['', '']                                                    | [tooltip y axis suffix, tooltip y axis title suffix]                             |
 | **XAxisOptions**        | Array            | ['on', 'bottom', false]                                 | [tickPlacement, position, tooltip enabled]          |
+| **YAxisOptions**        | Array            | [true, false, false, 6, true]                                 | [show, opposite, reversed, tickAmount, labels show]          |
 | **colorSet**            | Array            | ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'] | color format                                        |
 | **toolbarOptions**      | Object           | show, offsetX, offsetY, ... etc                         |                                                     |
 | **zoomOptions**         | Object           | enabled, type, autoScaleYaxis, ... etc                  |                                                     |
