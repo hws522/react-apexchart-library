@@ -26,6 +26,7 @@ const BarChart = ({
     tooltipXAxis,
     tooltipYAxis,
     XAxisOptions,
+    YAxisOptions,
     colorSet,
     categories,
     title,
@@ -280,9 +281,9 @@ const BarChart = ({
                             formatter: undefined,
                         },
                         y: {
-                            formatter: undefined,
+                            formatter: (series) => `${series}${tooltipYAxis[0]}`,
                             title: {
-                                formatter: (seriesName) => `${seriesName} ${tooltipYAxis[0]}`,
+                                formatter: (seriesName) => `${seriesName} ${tooltipYAxis[1]}`,
                             },
                         },
                         z: {
@@ -412,6 +413,79 @@ const BarChart = ({
                             },
                         },
                     },
+                    yaxis: {
+                        show: YAxisOptions[0], //true
+                        showAlways: true, //* 범례누르면 사라지는 기능
+                        showForNullSeries: true, //* 값이 없으면 안보이게 하는 기능
+                        seriesName: undefined,
+                        opposite: YAxisOptions[1],//false, //* 축 반대쪽으로
+                        reversed: YAxisOptions[2],//false, //* 값 역순으로
+                        logarithmic: false,
+                        // logBase: 10,
+                        tickAmount: YAxisOptions[3], //6, //* 간격 수
+                        min: undefined,
+                        max: undefined,
+                        forceNiceScale: false, //* 강제로 값 반올림해서 보기 좋게
+                        floating: false,
+                        decimalsInFloat: undefined,
+                        labels: {
+                            show: YAxisOptions[4], //true,
+                            align: 'right',
+                            minWidth: 0,
+                            maxWidth: 160,
+                            style: {
+                                colors: [],
+                                fontSize: '12px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 400,
+                                cssClass: 'apexcharts-yaxis-label',
+                            },
+                            offsetX: 0,
+                            offsetY: 0,
+                            rotate: 0,
+                            formatter: (value) => { return value },
+                        },
+                        axisBorder: {
+                            show: true,
+                            color: '#78909C',
+                            offsetX: 0,
+                            offsetY: 0
+                        },
+                        axisTicks: {
+                            show: true,
+                            borderType: 'solid',
+                            color: '#78909C',
+                            width: 6,
+                            offsetX: 0,
+                            offsetY: 0
+                        },
+                        title: {
+                            text: undefined,
+                            rotate: -90,
+                            offsetX: 0,
+                            offsetY: 0,
+                            style: {
+                                color: undefined,
+                                fontSize: '12px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 600,
+                                cssClass: 'apexcharts-yaxis-title',
+                            },
+                        },
+                        crosshairs: {
+                            show: false,
+                            position: 'back',
+                            stroke: {
+                                color: '#b6b6b6',
+                                width: 1,
+                                dashArray: 0,
+                            },
+                        },
+                        tooltip: {
+                            enabled: false,
+                            offsetX: 0,
+                        },
+                    }
                 }}
             />
         </>
@@ -500,8 +574,9 @@ BarChart.defaultProps = {
     chartSubtitle: [undefined, 'center', 0, 0, 12, '#9699a2'],
     tooltipOptions: [true, true, false, 'light', 12],
     tooltipXAxis: [true, 'dd MMM'],
-    tooltipYAxis: [''],
+    tooltipYAxis: ['', ''],
     XAxisOptions: ['on', 'bottom', false],
+    YAxisOptions: [true, false, false, 6, true],
 
     colorSet: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
 
