@@ -13,7 +13,7 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart 가 업데이트 된 상태 입니다.
 
 It will be updated for each apexchart type, and the Line Chart, Bar Chart is currently updated.
 
