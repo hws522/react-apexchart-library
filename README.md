@@ -1,10 +1,17 @@
 # react-apexchart-library
 
 
-<br>
 
-![npm](https://img.shields.io/npm/dt/react-apexchart-library)
-![npm](https://img.shields.io/npm/v/react-apexchart-library)
+<p align="center"><img src="https://apexcharts.com/media/react-apexcharts.png"></p>  
+      
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-apexchart-library"><img src="https://img.shields.io/npm/dt/react-apexchart-library.svg" alt="dt"></a>
+  <a href="https://www.npmjs.com/package/react-apexchart-library"><img src="https://img.shields.io/npm/v/react-apexchart-library.svg" alt="ver"></a>
+</p>  
+    
+
+
+
 
 <br>
 
