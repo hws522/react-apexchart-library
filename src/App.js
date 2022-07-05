@@ -2,60 +2,25 @@ import LineChart from "./components/apexcharts/LineChart";
 import BarChart from "./components/apexcharts/BarChart";
 import BubbleChart from "./components/apexcharts/BubbleChart";
 
-
-var _seed = 42;
-Math.random = function () {
-  _seed = _seed * 16807 % 2147483647;
-  return (_seed - 1) / 2147483646;
-};
-
-function generateData(baseval, count, yrange) {
-  var i = 0;
-  var series = [];
-  while (i < count) {
-    var x = Math.floor(Math.random() * (750 - 1 + 1)) + 1;;
-    var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-    var z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
-
-    series.push([x, y, z]);
-    baseval += 86400000;
-    i++;
-  }
-  return series;
-}
-
-
 function App() {
-
+  const bubbleRadius = [10, 100];
   const chartSeries = [{
     name: 'Bubble1',
-    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
-      min: 10,
-      max: 60
-    })
+    data: [[10, 10, 10], [20, 20, 20], [30, 30, 30]]
   },
   {
     name: 'Bubble2',
-    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
-      min: 10,
-      max: 60
-    })
+    data: [[50, 50, 50], [60, 60, 60], [70, 70, 70]]
   },
   {
     name: 'Bubble3',
-    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
-      min: 10,
-      max: 60
-    })
+    data: [[40, 40, 40], [80, 80, 80], [90, 90, 90]]
   },
   {
     name: 'Bubble4',
-    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
-      min: 10,
-      max: 60
-    })
+    data: [[26, 26, 26], [73, 73, 73], [81, 81, 81]]
   }];
-  const bubbleRadius = [10, 100];
+
   return (
     <>
       <BubbleChart
