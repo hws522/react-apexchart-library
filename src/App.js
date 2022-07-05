@@ -1,23 +1,67 @@
 import LineChart from "./components/apexcharts/LineChart";
 import BarChart from "./components/apexcharts/BarChart";
+import BubbleChart from "./components/apexcharts/BubbleChart";
+
+
+var _seed = 42;
+Math.random = function () {
+  _seed = _seed * 16807 % 2147483647;
+  return (_seed - 1) / 2147483646;
+};
+
+function generateData(baseval, count, yrange) {
+  var i = 0;
+  var series = [];
+  while (i < count) {
+    var x = Math.floor(Math.random() * (750 - 1 + 1)) + 1;;
+    var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+    var z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
+
+    series.push([x, y, z]);
+    baseval += 86400000;
+    i++;
+  }
+  return series;
+}
+
 
 function App() {
-  const chartSeries = [
-    {
-      name: 'Test Name1',
-      data: [10, 30, 50, 70, 90, 10, 30],
-    },
-    {
-      name: 'Test Name2',
-      data: [20, 40, 60, 80, 20, 40, 60],
-    }
-  ];
-  const categories = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'];
+
+  const chartSeries = [{
+    name: 'Bubble1',
+    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+      min: 10,
+      max: 60
+    })
+  },
+  {
+    name: 'Bubble2',
+    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+      min: 10,
+      max: 60
+    })
+  },
+  {
+    name: 'Bubble3',
+    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+      min: 10,
+      max: 60
+    })
+  },
+  {
+    name: 'Bubble4',
+    data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+      min: 10,
+      max: 60
+    })
+  }];
+  const bubbleRadius = [10, 100];
   return (
     <>
-      <BarChart
+      <BubbleChart
         chartSeries={chartSeries}
-        categories={categories}
+        bubbleRadius={bubbleRadius}
+        dataLabelEnabled={false}
       />
     </>
   );
