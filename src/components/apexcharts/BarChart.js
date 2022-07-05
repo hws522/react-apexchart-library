@@ -493,6 +493,7 @@ const BarChart = ({
 }
 
 BarChart.defaultProps = {
+    categories: [],
     chartSeries: [],
     chartHeight: 500,
     chartWidth: '100%',

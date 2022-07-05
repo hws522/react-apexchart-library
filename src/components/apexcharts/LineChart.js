@@ -459,6 +459,7 @@ const LineChart = ({
 }
 
 LineChart.defaultProps = {
+    categories: [],
     chartSeries: [],
     chartHeight: 500,
     chartWidth: '100%',
