@@ -1,7 +1,7 @@
 import React from 'react'
 import Chart from 'react-apexcharts'
 
-const LineChart = ({
+const BubbleChart = ({
     chartHeight,
     chartWidth,
     chartSeries,
@@ -31,18 +31,26 @@ const LineChart = ({
     categories,
     title,
     titleStyle,
+    /****************************/
+    bubbleRadius,
 }) => {
     return (
         <>
             <Chart
-                className={'chart-line'}
-                type={'line'}
+                className={'chart-bubble'}
+                type={'bubble'}
                 height={chartHeight}
                 width={chartWidth}
                 series={chartSeries}
                 options={{
+                    plotOptions: {
+                        bubble: {
+                            minBubbleRadius: bubbleRadius[0],
+                            maxBubbleRadius: bubbleRadius[1],
+                        }
+                    },
                     chart: {
-                        id: 'basic-line',
+                        id: 'basic-bubble',
                         toolbar: toolbarOptions,
                         zoom: zoomOptions,
                         background: backgroundColor,
@@ -227,9 +235,9 @@ const LineChart = ({
                     tooltip: {
                         enabled: tooltipOptions[0],
                         enabledOnSeries: undefined,
-                        shared: tooltipOptions[1],
+                        // shared: false,
                         followCursor: false,
-                        intersect: false,
+                        // intersect: false,
                         inverseOrder: false,
                         custom: undefined,
                         fillSeriesColor: tooltipOptions[2],
@@ -272,7 +280,7 @@ const LineChart = ({
                     xaxis: {
                         type: 'category',
                         categories: categories,
-                        tickAmount: undefined,
+                        tickAmount: 'dataPoints',
                         tickPlacement: XAxisOptions[0],
                         min: undefined,
                         max: undefined,
@@ -458,7 +466,7 @@ const LineChart = ({
     )
 }
 
-LineChart.defaultProps = {
+BubbleChart.defaultProps = {
     categories: [],
     chartSeries: [],
     chartHeight: 500,
@@ -546,6 +554,10 @@ LineChart.defaultProps = {
     YAxisOptions: [true, false, false, 6, true],
 
     colorSet: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+
+    /****************************************************************/
+    //* Bubble plotOptions
+    bubbleRadius: [undefined, undefined]
 }
 
-export default LineChart
+export default BubbleChart

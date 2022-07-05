@@ -21,9 +21,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart is currently updated.
 
 <br>
 <br>
@@ -39,7 +39,7 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import {LineChart, BarChart, AreaChart} from 'react-apexchart-library'
+import {LineChart, BarChart, AreaChart, BubbleChart} from 'react-apexchart-library'
 ```
 
 
@@ -84,6 +84,46 @@ export default App;
 This will render the following chart.
 
 ![image](https://user-images.githubusercontent.com/59306143/175777172-2c8a87ad-78e0-4bca-a5a7-3dabeadfef0e.png)
+
+<br>
+<br>
+
+Bubble Chart 에서는 Series 설정을 다르게 해야 합니다.
+
+In case of Bubble Chart, you need to set the Series differently.
+
+```jsx
+function App() {
+  const bubbleRadius = [10, 100];
+  const chartSeries = [{
+    name: 'Bubble1',
+    data: [[10, 10, 10], [20, 20, 20], [30, 30, 30]]
+  },
+  {
+    name: 'Bubble2',
+    data: [[50, 50, 50], [60, 60, 60], [70, 70, 70]]
+  },
+  {
+    name: 'Bubble3',
+    data: [[40, 40, 40], [80, 80, 80], [90, 90, 90]]
+  },
+  {
+    name: 'Bubble4',
+    data: [[26, 26, 26], [73, 73, 73], [81, 81, 81]]
+  }];
+
+  //* data: [[x: number => xAxis, y: number => yAxis, z: number => size]]
+  return (
+    <>
+      <BubbleChart
+        chartSeries={chartSeries}
+        bubbleRadius={bubbleRadius}
+        dataLabelEnabled={false}
+      />
+    </>
+  );
+}
+```
 
 <br>
 <br>
@@ -153,4 +193,10 @@ This will render the following chart.
 
 
 <br>
+
+### BubbleChart
+
+| Prop           | Type   | Default  | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| **bubbleRadius** | Array | [undefined, undefined] | [minBubbleRadius, maxBubbleRadius] |
 

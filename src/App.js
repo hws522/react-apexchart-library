@@ -1,23 +1,32 @@
 import LineChart from "./components/apexcharts/LineChart";
 import BarChart from "./components/apexcharts/BarChart";
+import BubbleChart from "./components/apexcharts/BubbleChart";
 
 function App() {
-  const chartSeries = [
-    {
-      name: 'Test Name1',
-      data: [10, 30, 50, 70, 90, 10, 30],
-    },
-    {
-      name: 'Test Name2',
-      data: [20, 40, 60, 80, 20, 40, 60],
-    }
-  ];
-  const categories = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'];
+  const bubbleRadius = [10, 100];
+  const chartSeries = [{
+    name: 'Bubble1',
+    data: [[10, 10, 10], [20, 20, 20], [30, 30, 30]]
+  },
+  {
+    name: 'Bubble2',
+    data: [[50, 50, 50], [60, 60, 60], [70, 70, 70]]
+  },
+  {
+    name: 'Bubble3',
+    data: [[40, 40, 40], [80, 80, 80], [90, 90, 90]]
+  },
+  {
+    name: 'Bubble4',
+    data: [[26, 26, 26], [73, 73, 73], [81, 81, 81]]
+  }];
+
   return (
     <>
-      <BarChart
+      <BubbleChart
         chartSeries={chartSeries}
-        categories={categories}
+        bubbleRadius={bubbleRadius}
+        dataLabelEnabled={false}
       />
     </>
   );
