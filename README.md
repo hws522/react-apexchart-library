@@ -21,9 +21,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart is currently updated.
 
 <br>
 <br>
@@ -39,7 +39,7 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import {LineChart, BarChart, AreaChart, BubbleChart} from 'react-apexchart-library'
+import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart } from 'react-apexchart-library'
 ```
 
 
@@ -128,6 +128,63 @@ function App() {
 <br>
 <br>
 
+BoxPlot Chart 에서는 Series 설정을 다르게 해야 합니다.
+
+In case of BoxPlot Chart, you need to set the Series differently.
+
+```jsx
+function App() {
+  const chartSeries = [
+    {
+      data: [
+        {
+          x: 'Category A',
+          y: [54, 66, 69, 75, 88]
+        },
+        {
+          x: 'Category B',
+          y: [43, 65, 69, 76, 81]
+        },
+        {
+          x: 'Category C',
+          y: [31, 39, 45, 51, 59]
+        },
+        {
+          x: 'Category D',
+          y: [39, 46, 55, 65, 71]
+        },
+        {
+          x: 'Category E',
+          y: [29, 31, 35, 39, 44]
+        },
+        {
+          x: 'Category F',
+          y: [41, 49, 58, 61, 67]
+        },
+        {
+          x: 'Category G',
+          y: [54, 59, 66, 71, 88]
+        }
+      ]
+    }
+  ];
+
+  //* [{ x: category/date, y: [min, q1, median, q3, max] }]
+  return (
+    <>
+      <BoxPlotChart
+        chartSeries={chartSeries}
+        dataLabelEnabled={false}
+        zoomOptions={{enabled: false}}
+      />
+    </>
+  );
+}
+```
+
+<br>
+<br>
+
 ## Props
 
 | Prop                    | Type             | Default                                                 | Description                                         |
@@ -199,4 +256,12 @@ function App() {
 | Prop           | Type   | Default  | Description                                                  |
 | -------------- | ------ | -------- | ------------------------------------------------------------ |
 | **bubbleRadius** | Array | [undefined, undefined] | [minBubbleRadius, maxBubbleRadius] |
+
+<br>
+
+### BoxPlotChart
+
+| Prop           | Type   | Default  | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| **boxPlotColors** | Array | ['#e9ecef', '#f8f9fa'] | [upperColor, lowerColor] |
 
