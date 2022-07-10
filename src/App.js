@@ -1,32 +1,50 @@
 import LineChart from "./components/apexcharts/LineChart";
 import BarChart from "./components/apexcharts/BarChart";
 import BubbleChart from "./components/apexcharts/BubbleChart";
+import BoxPlotChart from "./components/apexcharts/BoxPlotChart";
 
 function App() {
-  const bubbleRadius = [10, 100];
-  const chartSeries = [{
-    name: 'Bubble1',
-    data: [[10, 10, 10], [20, 20, 20], [30, 30, 30]]
-  },
-  {
-    name: 'Bubble2',
-    data: [[50, 50, 50], [60, 60, 60], [70, 70, 70]]
-  },
-  {
-    name: 'Bubble3',
-    data: [[40, 40, 40], [80, 80, 80], [90, 90, 90]]
-  },
-  {
-    name: 'Bubble4',
-    data: [[26, 26, 26], [73, 73, 73], [81, 81, 81]]
-  }];
+  const chartSeries = [
+    {
+      data: [
+        {
+          x: 'Category A',
+          y: [54, 66, 69, 75, 88]
+        },
+        {
+          x: 'Category B',
+          y: [43, 65, 69, 76, 81]
+        },
+        {
+          x: 'Category C',
+          y: [31, 39, 45, 51, 59]
+        },
+        {
+          x: 'Category D',
+          y: [39, 46, 55, 65, 71]
+        },
+        {
+          x: 'Category E',
+          y: [29, 31, 35, 39, 44]
+        },
+        {
+          x: 'Category F',
+          y: [41, 49, 58, 61, 67]
+        },
+        {
+          x: 'Category G',
+          y: [54, 59, 66, 71, 88]
+        }
+      ]
+    }
+  ];
 
   return (
     <>
-      <BubbleChart
+      <BoxPlotChart
         chartSeries={chartSeries}
-        bubbleRadius={bubbleRadius}
         dataLabelEnabled={false}
+        zoomOptions={{enabled: false}}
       />
     </>
   );
