@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/react-apexchart-library"><img src="https://img.shields.io/npm/dt/react-apexchart-library.svg" alt="dt"></a>
   <a href="https://www.npmjs.com/package/react-apexchart-library"><img src="https://img.shields.io/npm/v/react-apexchart-library.svg" alt="ver"></a>
+  <a href="https://github.com/hws522/react-apexchart-library"><img src="https://img.shields.io/badge/-give%20me%20star👍-lightgrey"><img src="https://img.shields.io/github/stars/hws522/react-apexchart-library?style=social"></a>
 </p>  
     
 
@@ -21,9 +22,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart is currently updated.
 
 <br>
 <br>
@@ -39,7 +40,7 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart } from 'react-apexchart-library'
+import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart } from 'react-apexchart-library'
 ```
 
 
@@ -185,6 +186,80 @@ function App() {
 <br>
 <br>
 
+Candlestick Chart 에서는 Series 설정을 다르게 해야 합니다.
+
+In case of Candlestick Chart, you need to set the Series differently.
+
+```jsx
+function App() {
+  const chartSeries = [{
+      data: [
+        {
+          x: new Date(1538778600000),
+          y: [6629.81, 6650.5, 6623.04, 6633.33]
+        },
+        {
+          x: new Date(1538780400000),
+          y: [6632.01, 6643.59, 6620, 6630.11]
+        },
+        {
+          x: new Date(1538782200000),
+          y: [6630.71, 6648.95, 6623.34, 6635.65]
+        },
+        {
+          x: new Date(1538784000000),
+          y: [6635.65, 6651, 6629.67, 6638.24]
+        },
+        {
+          x: new Date(1538785800000),
+          y: [6638.24, 6640, 6620, 6624.47]
+        },
+        {
+          x: new Date(1538787600000),
+          y: [6624.53, 6636.03, 6621.68, 6624.31]
+        },
+        {
+          x: new Date(1538789400000),
+          y: [6624.61, 6632.2, 6617, 6626.02]
+        },
+        {
+          x: new Date(1538791200000),
+          y: [6627, 6627.62, 6584.22, 6603.02]
+        },
+        {
+          x: new Date(1538793000000),
+          y: [6605, 6608.03, 6598.95, 6604.01]
+        },
+        ...
+      ]
+    }];
+
+  /*
+  The multi-dimensional array:
+  [[Timestamp], [O, H, L, C]]
+
+  single array:
+  [Timestamp, O, H, L, C]
+
+  xy format:
+  [{ x: date, y: [O,H,L,C] }]
+  */
+
+  return (
+    <>
+      <CandlestickChart
+        chartSeries={chartSeries}
+        dataLabelEnabled={false}
+        XAxisOptions={['datetime']}
+      />
+    </>
+  );
+}
+```
+
+<br>
+<br>
+
 ## Props
 
 | Prop                    | Type             | Default                                                 | Description                                         |
@@ -212,7 +287,7 @@ function App() {
 | **tooltipOptions**      | Array            | [true, true, false, 'light', 12]                        | [enabled, shared, fillSeriesColor, theme, fontSize] |
 | **tooltipXAxis**        | Array            | [true, 'dd MMM']                                        | [show, format]                                      |
 | **tooltipYAxis**        | Array            | ['', '']                                                    | [tooltip y axis suffix, tooltip y axis title suffix]                             |
-| **XAxisOptions**        | Array            | ['on', 'bottom', false]                                 | [tickPlacement, position, tooltip enabled]          |
+| **XAxisOptions**        | Array            | ['category', 'on', 'bottom', false]                                 | [xAxis type, tickPlacement, position, tooltip enabled]          |
 | **YAxisOptions**        | Array            | [true, false, false, 6, true]                                 | [show, opposite, reversed, tickAmount, labels show]          |
 | **colorSet**            | Array            | ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'] | color format                                        |
 | **toolbarOptions**      | Object           | show, offsetX, offsetY, ... etc                         |                                                     |
@@ -264,4 +339,13 @@ function App() {
 | Prop           | Type   | Default  | Description                                                  |
 | -------------- | ------ | -------- | ------------------------------------------------------------ |
 | **boxPlotColors** | Array | ['#e9ecef', '#f8f9fa'] | [upperColor, lowerColor] |
+
+<br>
+
+### CandlestickChart
+
+| Prop           | Type   | Default  | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| **candlestickColor** | Array | ['#e9ecef', '#f8f9fa'] | [upwardColor, downwardColor] |
+| **candlestickWick** | Boolean | true | Candle wick color uses the same color as the body color |
 

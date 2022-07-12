@@ -304,17 +304,17 @@ const BarChart = ({
                         },
                     },
                     xaxis: {
-                        type: 'category',
+                        type: XAxisOptions[0],
                         categories: categories,
                         tickAmount: undefined,
-                        tickPlacement: XAxisOptions[0],
+                        tickPlacement: XAxisOptions[1],
                         min: undefined,
                         max: undefined,
                         range: undefined,
                         floating: false,
                         decimalsInFloat: undefined,
                         overwriteCategories: undefined,
-                        position: XAxisOptions[1],
+                        position: XAxisOptions[2],
                         labels: {
                             show: true,
                             rotate: -45,
@@ -402,7 +402,7 @@ const BarChart = ({
                             },
                         },
                         tooltip: {
-                            enabled: XAxisOptions[2],
+                            enabled: XAxisOptions[3],
                             formatter: function (val, opts) {
                                 return val + "..."
                             },
@@ -576,7 +576,7 @@ BarChart.defaultProps = {
     tooltipOptions: [true, true, false, 'light', 12],
     tooltipXAxis: [true, 'dd MMM'],
     tooltipYAxis: ['', ''],
-    XAxisOptions: ['on', 'bottom', false],
+    XAxisOptions: ['category', 'on', 'bottom', false],
     YAxisOptions: [true, false, false, 6, true],
 
     colorSet: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],

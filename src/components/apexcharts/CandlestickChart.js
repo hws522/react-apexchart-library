@@ -1,7 +1,22 @@
 import React from 'react'
 import Chart from 'react-apexcharts'
 
-const LineChart = ({
+/*
+candlestick 데이터 형식
+candlestick의 데이터 형식은 다른 차트와 약간 다릅니다. 
+ApexCharts는 데이터가 아래 예와 같이 [[Timestamp], [O, H, L, C]] 형식이라고 가정합니다.
+
+The multi-dimensional array
+[[Timestamp], [O, H, L, C]]
+
+single array
+[Timestamp, O, H, L, C]
+
+xy format
+[{ x: date, y: [O,H,L,C] }]
+*/
+
+const CandlestickChart = ({
     chartHeight,
     chartWidth,
     chartSeries,
@@ -31,18 +46,32 @@ const LineChart = ({
     categories,
     title,
     titleStyle,
+    /****************************/
+    candlestickColor,
+    candlestickWick,
 }) => {
     return (
         <>
             <Chart
-                className={'chart-line'}
-                type={'line'}
+                className={'chart-candlestick'}
+                type={'candlestick'}
                 height={chartHeight}
                 width={chartWidth}
                 series={chartSeries}
                 options={{
+                    plotOptions: {
+                        candlestick:{
+                            colors:{
+                                upward:candlestickColor[0],
+                                downward:candlestickColor[1],
+                            },
+                            wick:{
+                                useFillColor:candlestickWick,
+                            }
+                        }
+                    },
                     chart: {
-                        id: 'basic-line',
+                        id: 'basic-candlestick',
                         toolbar: toolbarOptions,
                         zoom: zoomOptions,
                         background: backgroundColor,
@@ -192,7 +221,7 @@ const LineChart = ({
                         show: chartStroke[0],
                         curve: chartStroke[1],
                         lineCap: 'butt',
-                        colors: undefined,
+                        colors: ['#6c757d'],
                         width: chartStroke[2],
                         dashArray: chartStroke[3],
                     },
@@ -231,7 +260,7 @@ const LineChart = ({
                         followCursor: false,
                         intersect: false,
                         inverseOrder: false,
-                        custom: undefined,
+                        // custom: undefined,
                         fillSeriesColor: tooltipOptions[2],
                         theme: tooltipOptions[3],
                         style: {
@@ -367,8 +396,8 @@ const LineChart = ({
                                 opacity: 0.4,
                             },
                         },
-                        tooltip: {
-                            enabled: XAxisOptions[3],
+                        tooltip: { //* x축 tooltip
+                            enabled: XAxisOptions[3], //* x축 tooltip on/off
                             formatter: function (val, opts) {
                                 return val + "..."
                             },
@@ -439,7 +468,7 @@ const LineChart = ({
                             },
                         },
                         crosshairs: {
-                            show: false,
+                            show: true,
                             position: 'back',
                             stroke: {
                                 color: '#b6b6b6',
@@ -458,7 +487,7 @@ const LineChart = ({
     )
 }
 
-LineChart.defaultProps = {
+CandlestickChart.defaultProps = {
     categories: [],
     chartSeries: [],
     chartHeight: 500,
@@ -546,6 +575,11 @@ LineChart.defaultProps = {
     YAxisOptions: [true, false, false, 6, true],
 
     colorSet: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+
+    /****************************************************************/
+    //* Candlestick plotOptions
+    candlestickColor: ['#ef403c', '#00b746'],
+    candlestickWick: true,
 }
 
-export default LineChart
+export default CandlestickChart
