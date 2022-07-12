@@ -21,7 +21,7 @@
     "charts",
     "apexcharts"
   ],
-  "version": "0.4.0",
+  "version": "0.5.0",
   "dependencies": {
     "apexcharts": "^3.35.3",
     "react-apexcharts": "^1.4.0"
