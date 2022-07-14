@@ -494,37 +494,42 @@ function App() {
     },
   ];
 
-  const colorScale = {
-    ranges: [
-      {
-        from: -30,
-        to: 5,
-        name: 'low',
-        color: '#00A100',
-      },
-      {
-        from: 6,
-        to: 20,
-        name: 'medium',
-        color: '#128FD9',
-      },
-      {
-        from: 21,
-        to: 45,
-        name: 'high',
-        color: '#FFB200',
-      },
-      {
-        from: 46,
-        to: 55,
-        name: 'extreme',
-        color: '#FF0000',
-      },
-    ],
-  };
+  const heatmapColorScale = [
+    {
+      from: 0,
+      to: 20,
+      name: 'low',
+      color: '#2196F3',
+    },
+    {
+      from: 21,
+      to: 40,
+      name: 'medium',
+      color: '#4CAF50',
+    },
+    {
+      from: 41,
+      to: 60,
+      name: 'high',
+      color: '#FFC107',
+    },
+    {
+      from: 61,
+      to: 80,
+      name: 'extreme',
+      color: '#FF5722',
+    },
+    {
+      from: 81,
+      to: 100,
+      name: 'max',
+      color: '#9C27B0',
+    },
+  ];
+
   return (
     <>
-      <HeatmapChart chartSeries={chartSeries} dataLabelEnabled={false} />
+      <HeatmapChart chartSeries={chartSeries} dataLabelEnabled={false} heatmapColorScale={heatmapColorScale} />
     </>
   );
 }

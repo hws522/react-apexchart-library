@@ -58,6 +58,11 @@ const HeatmapChart = ({
   title,
   titleStyle,
   /****************************/
+  heatmapRadius,
+  heatmapReverse,
+  heatmapStroke,
+  heatmapColorScale,
+  heatmapInverse,
 }) => {
   return (
     <>
@@ -70,26 +75,29 @@ const HeatmapChart = ({
         options={{
           plotOptions: {
             heatmap: {
-              radius: 2, // 히트맵 내부 사각형 반경
+              radius: heatmapRadius, // 히트맵 내부 사각형 반경
               enableShades: true, // 값에 따른 음영 활성화
               shadeIntensity: 0.5, // 음영 강도
-              reverseNegativeShade: true,
+              reverseNegativeShade: heatmapReverse,
               // 음수에 대한 음영 반전. 양수는 그대로. 짙은 빨간색이 더 큰 손실을 의미하고 더 어두운 녹색이 더 큰 이익을 의미하는 손익 차트 권장.
               distributed: false,
               // 각 행은 고유한 최저 및 최고 범위를 가지며 색상은 각 시리즈에 대해 음영 처리
-              useFillColorAsStroke: false, //히트맵 셀 주위의 획/테두리는 셀 색상과 동일한 색상
-              // colorScale: {
-              //   ranges: [{
-              //       from: 0, // 범위 시작
-              //       to: 0, // 범위 끝
-              //       color: undefined, // 해당 범위 내 색상
-              //       foreColor: undefined, // 데이터 레이블 있을 때, 텍스트 색상
-              //       name: undefined, // 범례
-              //   }],
-              //   inverse: false, // 수평이 아닌 수직으로 표현
-              //   min: undefined, // 색상 계산을 위한 더 낮은 범위 지정
-              //   max: undefined // 색상 계산을 위한 더 높은 범위 지정
-              // },
+              useFillColorAsStroke: heatmapStroke, //히트맵 셀 주위의 획/테두리는 셀 색상과 동일한 색상
+              colorScale: {
+                ranges: heatmapColorScale,
+                // [
+                // {
+                //   from: 0, // 범위 시작
+                //   to: 0, // 범위 끝
+                //   color: undefined, // 해당 범위 내 색상
+                //   foreColor: undefined, // 데이터 레이블 있을 때, 텍스트 색상
+                //   name: undefined, // 범례
+                // },
+                // ],
+                inverse: heatmapInverse, // 수평이 아닌 수직으로 표현
+                min: undefined, // 색상 계산을 위한 더 낮은 범위 지정
+                max: undefined, // 색상 계산을 위한 더 높은 범위 지정
+              },
             },
           },
           chart: {
@@ -603,6 +611,11 @@ HeatmapChart.defaultProps = {
 
   /****************************************************************/
   //* Heatmap plotOptions
+  heatmapRadius: 2,
+  heatmapReverse: true,
+  heatmapStroke: false,
+  heatmapInverse: false,
+  heatmapColorScale: [],
 };
 
 export default HeatmapChart;
