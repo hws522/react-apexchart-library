@@ -16,9 +16,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, PieChart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart is currently updated.
 
 <br>
 <br>
@@ -34,7 +34,7 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart } from 'react-apexchart-library';
+import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart } from 'react-apexchart-library';
 ```
 
 <br>
@@ -343,6 +343,26 @@ function App() {
 <br>
 <br>
 
+Pie Chart 에서는 Series 설정을 다르게 해야 합니다.
+
+In case of Pie Chart, you need to set the Series differently.
+
+```jsx
+function App() {
+  const chartSeries = [44, 55, 13, 43, 22];
+  const pieLabels = ['Label1', 'Label2', 'Label3', 'Label4', 'Label5'];
+
+  return (
+    <>
+      <PieChart chartSeries={chartSeries} pieLabels={pieLabels} />
+    </>
+  );
+}
+```
+
+<br>
+<br>
+
 ## Props
 
 | Prop                    | Type             | Default                                                 | Description                                            |
@@ -437,3 +457,23 @@ function App() {
 | **heatmapStroke**     | Boolean | false   | Make the heatmap border color the same as the cell color |
 | **heatmapColorScale** | Array   | []      | [{from, to, color, foreColor, name},]                    |
 | **heatmapInverse**    | Boolean | false   | vertically instead of horizontally                       |
+|                       |
+
+<br>
+
+### PieChart
+
+| Prop                      | Type    | Default                      | Description                                         |
+| ------------------------- | ------- | ---------------------------- | --------------------------------------------------- |
+| **pieType**               | String  | 'pie'                        | pie or donut                                        |
+| **pieLabels**             | Array   | []                           | use in category                                     |
+| **pieAngles**             | Array   | [0, 360]                     | start and end angles of the pie                     |
+| **pieOnClick**            | Boolean | false                        | extension when clicked                              |
+| **pieOffset**             | Array   | [0, 0]                       | position coordinates of pie                         |
+| **pieLabelOffset**        | Number  | 0                            | labels will move outside / inside of the donut area |
+| **pieShowLabelAngle**     | Number  | 10                           | Minimum angle to allow data-labels to show          |
+| **donutBackground**       | String  | 'transparent'                | The background color of the pie                     |
+| **donutLabelsShow**       | Boolean | false                        | Whether to display internal labels when donut       |
+| **donutLabelValueSuffix** | String  | ''                           | The suffix on the label when donut                  |
+| **donutTotalShow**        | Boolean | false                        | Whether to show the total value when donut          |
+| **donutTotalStyles**      | Array   | ['Total', '22px', '#373d3f'] | [total labels title, font size, font color]         |
