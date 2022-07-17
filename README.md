@@ -16,9 +16,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, PieChart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart is currently updated.
 
 <br>
 <br>
@@ -34,7 +34,7 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart } from 'react-apexchart-library';
+import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart, PolarAreaChart } from 'react-apexchart-library';
 ```
 
 <br>
@@ -363,6 +363,26 @@ function App() {
 <br>
 <br>
 
+PolarArea Chart 는 Pie Chart 와 동일합니다.
+
+PolarArea Chart is the same as Pie Chart.
+
+```jsx
+function App() {
+  const chartSeries = [44, 55, 13, 43, 22];
+  const polarLabels = ['Label1', 'Label2', 'Label3', 'Label4', 'Label5'];
+
+  return (
+    <>
+      <PolarAreaChart chartSeries={chartSeries} polarLabels={polarLabels} dataLabelEnabled={false} />
+    </>
+  );
+}
+```
+
+<br>
+<br>
+
 ## Props
 
 | Prop                    | Type             | Default                                                 | Description                                            |
@@ -477,3 +497,13 @@ function App() {
 | **donutLabelValueSuffix** | String  | ''                           | The suffix on the label when donut                  |
 | **donutTotalShow**        | Boolean | false                        | Whether to show the total value when donut          |
 | **donutTotalStyles**      | Array   | ['Total', '22px', '#373d3f'] | [total labels title, font size, font color]         |
+
+<br>
+
+### PolarAreaChart
+
+| Prop                 | Type  | Default        | Description                                                       |
+| -------------------- | ----- | -------------- | ----------------------------------------------------------------- |
+| **polarLabels**      | Array | []             | use in category                                                   |
+| **polarRingStroke**  | Array | [1, '#e8e8e8'] | [Border width of the rings, The line/border color of the rings]   |
+| **polarSpokeStroke** | Array | [1, '#e8e8e8'] | [Border width of the spokes, The line/border color of the spokes] |
