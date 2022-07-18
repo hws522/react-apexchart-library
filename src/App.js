@@ -1,12 +1,24 @@
-import { LineChart, BarChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart, PolarAreaChart } from './components';
+import { LineChart, BarChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart, RadarChart } from './components';
 
 function App() {
-  const chartSeries = [44, 55, 13, 43, 22];
-  const polarLabels = ['Label1', 'Label2', 'Label3', 'Label4', 'Label5'];
-
+  const chartSeries = [
+    {
+      name: 'Test Name1',
+      data: [10, 30, 50, 70, 90, 10, 30],
+    },
+    {
+      name: 'Test Name2',
+      data: [20, 40, 60, 80, 20, 40, 60],
+    },
+  ];
+  const categories = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'];
   return (
     <>
-      <PolarAreaChart chartSeries={chartSeries} polarLabels={polarLabels} dataLabelEnabled={false} />
+      <RadarChart // or <BarChart />, <AreaChart /> ... etc
+        chartSeries={chartSeries}
+        categories={categories}
+        dataLabelEnabled={false}
+      />
     </>
   );
 }
