@@ -16,9 +16,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart, Radial Bar Chart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart, Radial Bar Chart is currently updated.
 
 <br>
 <br>
@@ -34,7 +34,19 @@ npm i react-apexchart-library
 ## Usage
 
 ```jsx
-import { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart, PolarAreaChart, RadarChart } from 'react-apexchart-library';
+import {
+  LineChart,
+  BarChart,
+  AreaChart,
+  BubbleChart,
+  BoxPlotChart,
+  CandlestickChart,
+  HeatmapChart,
+  PieChart,
+  PolarAreaChart,
+  RadarChart,
+  RadialBarChart,
+} from 'react-apexchart-library';
 ```
 
 <br>
@@ -389,12 +401,43 @@ Radar Chart is the same as Line Chart.
 
 ```jsx
 function App() {
-  const chartSeries = [44, 55, 13, 43, 22];
-  const polarLabels = ['Label1', 'Label2', 'Label3', 'Label4', 'Label5'];
-
+  const chartSeries = [
+    {
+      name: 'Test Name1',
+      data: [10, 30, 50, 70, 90, 10, 30],
+    },
+    {
+      name: 'Test Name2',
+      data: [20, 40, 60, 80, 20, 40, 60],
+    },
+  ];
+  const categories = ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'];
   return (
     <>
-      <PolarAreaChart chartSeries={chartSeries} polarLabels={polarLabels} dataLabelEnabled={false} />
+      <RadarChart // or <BarChart />, <AreaChart /> ... etc
+        chartSeries={chartSeries}
+        categories={categories}
+        dataLabelEnabled={false}
+      />
+    </>
+  );
+}
+```
+
+<br>
+<br>
+
+Radial Bar Chart 는 Pie Chart 와 동일합니다.
+
+Radial Bar Chart is the same as Pie Chart.
+
+```jsx
+function App() {
+  const chartSeries = [10, 30, 50, 70, 90];
+  const radialBarLabels = ['test1', 'test2', 'test3', 'test4', 'test5'];
+  return (
+    <>
+      <RadialBarChart chartSeries={chartSeries} radialBarLabels={radialBarLabels} tooltipOptions={[false]} />
     </>
   );
 }
@@ -537,3 +580,21 @@ function App() {
 | **radarOffset**    | Array | [0, 0]                    | [offsetX, offsetY]                                                                                                    |
 | **radarStroke**    | Array | ['#e8e8e8', '#e8e8e8', 1] | [radar stroke color, radar connector color, stroke width]                                                             |
 | **radarFillColor** | Array | undefined                 | The polygons can be filled with a custom color. [2 colors, the colors will be repeated for the rest of the polygons.] |
+
+<br>
+
+### RadialBarChart
+
+| Prop                         | Type    | Default                                 | Description                                                                                                                                                               |
+| ---------------------------- | ------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **radialBarLabels**          | Array   | []                                      | use in category                                                                                                                                                           |
+| **radialBarInverse**         | Boolean | false                                   | Whether to make the first value of series innermost or outermost                                                                                                          |
+| **radialBarAngle**           | Array   | [0, 360]                                | [Angle from which the radialBars should start, end]                                                                                                                       |
+| **radialBarOffset**          | Array   | [0, 0]                                  | Sets the offset for radialBars                                                                                                                                            |
+| **radialBarHollow**          | Array   | [5, '50%', 'transparent']               | [Spacing which will be subtracted from the available hollow size, Size in percentage relative to the total available size of chart, Background color for the hollow part] |
+| **radialBarTrack**           | Array   | [true, undefined, undefined]            | [Show track under the bar lines, track start angle, track end angle]                                                                                                      |
+| **radialBarTrackStyle**      | Array   | ['#f2f2f2', '97%', 1, 5]                | [track color, Width of the track, Opacity of the track, Spacing between each track]                                                                                       |
+| **radialBarDataLabels**      | Boolean | true                                    | Whether to display labels inside radialBars                                                                                                                               |
+| **radialBarDataLabelsName**  | Array   | [true, '16px', 600, undefined, -10]     | [Show the name of the respective bar associated with it’s value, font size, font weight, font color, Sets the top offset for name]                                        |
+| **radialBarDataLabelsValue** | Array   | [true, '14px', 400, undefined, 16]      | [Show the value label associated with the name label, font size, font weight, font color, Sets the top offset for name]                                                   |
+| **radialBarTotal**           | Array   | [true, 'Total', '#373d3f', '16px', 600] | [Show the total of all the series in the inner area of radialBar, label name, label color, label size, label weight]                                                      |
