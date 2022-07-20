@@ -9,5 +9,6 @@ import PieChart from './apexcharts/PieChart';
 import PolarAreaChart from './apexcharts/PolarAreaChart';
 import RadarChart from './apexcharts/RadarChart';
 import RadialBarChart from './apexcharts/RadialBarChart';
+import TreeMapChart from './apexcharts/TreeMapChart';
 
-export { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart, PolarAreaChart, RadarChart, RadialBarChart };
+export { LineChart, BarChart, AreaChart, BubbleChart, BoxPlotChart, CandlestickChart, HeatmapChart, PieChart, PolarAreaChart, RadarChart, RadialBarChart, TreeMapChart };
