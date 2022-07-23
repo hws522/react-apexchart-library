@@ -16,9 +16,9 @@ Easy to get started with react + apexchart.
 
 <br>
 
-apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart, Radial Bar Chart 가 업데이트 된 상태 입니다.
+apexchart 종류 별로 업데이트 예정이며, 현재는 Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart, Radial Bar Chart, TreeMap Chart 가 업데이트 된 상태 입니다.
 
-It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart, Radial Bar Chart is currently updated.
+It will be updated for each apexchart type, and the Line Chart, Bar Chart, Area Chart, Bubble Chart, BoxPlot Chart, Candlestick Chart, Heatmap Chart, Pie Chart, PolarArea Chart, Radar Chart, Radial Bar Chart, TreeMap Chart is currently updated.
 
 <br>
 <br>
@@ -46,6 +46,7 @@ import {
   PolarAreaChart,
   RadarChart,
   RadialBarChart,
+  TreeMapChart,
 } from 'react-apexchart-library';
 ```
 
@@ -445,6 +446,71 @@ function App() {
 
 <br>
 <br>
+TreeMap Chart 는 Heatmap Chart 와 동일합니다.
+
+TreeMap Chart is the same as Heatmap Chart.
+
+```jsx
+function App() {
+  const chartSeries = [
+    {
+      name: 'Desktops',
+      data: [
+        {
+          x: 'ABC',
+          y: 10,
+        },
+        {
+          x: 'DEF',
+          y: 60,
+        },
+        {
+          x: 'XYZ',
+          y: 41,
+        },
+      ],
+    },
+    {
+      name: 'Mobile',
+      data: [
+        {
+          x: 'ABCD',
+          y: 10,
+        },
+        {
+          x: 'DEFG',
+          y: 20,
+        },
+        {
+          x: 'WXYZ',
+          y: 51,
+        },
+        {
+          x: 'PQR',
+          y: 30,
+        },
+        {
+          x: 'MNO',
+          y: 20,
+        },
+        {
+          x: 'CDE',
+          y: 30,
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <TreeMapChart chartSeries={chartSeries} dataLabelTextStyle={{ colors: ['#fff'] }} zoomOptions={{ enabled: false }} />
+    </>
+  );
+}
+```
+
+<br>
+<br>
 
 ## Props
 
@@ -598,3 +664,18 @@ function App() {
 | **radialBarDataLabelsName**  | Array   | [true, '16px', 600, undefined, -10]     | [Show the name of the respective bar associated with it’s value, font size, font weight, font color, Sets the top offset for name]                                        |
 | **radialBarDataLabelsValue** | Array   | [true, '14px', 400, undefined, 16]      | [Show the value label associated with the name label, font size, font weight, font color, Sets the top offset for name]                                                   |
 | **radialBarTotal**           | Array   | [true, 'Total', '#373d3f', '16px', 600] | [Show the total of all the series in the inner area of radialBar, label name, label color, label size, label weight]                                                      |
+
+<br>
+
+### TreeMapChart
+
+| Prop                      | Type    | Default                                                           | Description                                                                                                                                                                                           |
+| ------------------------- | ------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **treeMapShades**         | Boolean | true                                                              | Enables color shading based on value.                                                                                                                                                                 |
+| **treeMapShadeIntensity** | Number  | 0.5                                                               | intensity of shading                                                                                                                                                                                  |
+| **treeMapReverse**        | Boolean | true                                                              | When enabled, it will reverse the shades for negatives but keep the positive shades as it is now.                                                                                                     |
+| **treeMapDistribute**     | Boolean | false                                                             | When turned on, colors will be shaded for each series.                                                                                                                                                |
+| **treeMapFillStroke**     | Boolean | false                                                             | When turned on, the stroke/border around the treemap cell has the same color as the cell color.                                                                                                       |
+| **treeMapColorScale**     | Array   | [{from: 0, to: 0, color: undefined, foreColor: undefined, }, ...] | [{from: Value indicating range’s upper limit, to: Value indicating range’s lower limit, color: Background color to fill the range with, foreColor: Color of the text if data-labels is enabled}, ...] |
+
+<br>

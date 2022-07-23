@@ -37,6 +37,12 @@ const TreeMapChart = ({
   title,
   titleStyle,
   /****************************/
+  treeMapShades,
+  treeMapShadeIntensity,
+  treeMapReverse,
+  treeMapDistribute,
+  treeMapFillStroke,
+  treeMapColorScale,
 }) => {
   return (
     <>
@@ -49,25 +55,17 @@ const TreeMapChart = ({
         options={{
           plotOptions: {
             treemap: {
-              enableShades: true, //Enable different shades of color depending on the value
-              shadeIntensity: 0.5, //The intensity of the shades generated for each value
-              reverseNegativeShade: true,
+              enableShades: treeMapShades, //Enable different shades of color depending on the value
+              shadeIntensity: treeMapShadeIntensity, //The intensity of the shades generated for each value
+              reverseNegativeShade: treeMapReverse,
               /* When enabled, it will reverse the shades for negatives but keep the positive shades as it is now.
-                    An example of such use-case would be in a profit/loss chart where darker reds mean larger losses, 
-                    darker greens mean larger gains. 
+                    An example of such use-case would be in a profit/loss chart where darker reds mean larger losses,
+                    darker greens mean larger gains.
                     */
-              distributed: false, //When turned on, each series in a treemap will have it’s own lowest and highest range and colors will be shaded for each series. Default value is false.
-              useFillColorAsStroke: false, //When turned on, the stroke/border around the treemap cell has the same color as the cell color.
+              distributed: treeMapDistribute, //When turned on, each series in a treemap will have it’s own lowest and highest range and colors will be shaded for each series. Default value is false.
+              useFillColorAsStroke: treeMapFillStroke, //When turned on, the stroke/border around the treemap cell has the same color as the cell color.
               colorScale: {
-                ranges: [
-                  {
-                    from: 0, //Value indicating range’s upper limit
-                    to: 0, //Value indicating range’s lower limit
-                    color: undefined, //Background color to fill the range with.
-                    foreColor: undefined, //Fore Color of the text if data-labels is enabled
-                    name: undefined,
-                  },
-                ],
+                ranges: treeMapColorScale,
                 inverse: false, //In a multiple series treemap, flip the color-scale to fill the treemaps vertically instead of horizontally.
                 min: undefined, //Specify the lower range for treemap color calculation.
                 max: undefined, //Specify the higher range for treemap color calculation.
@@ -585,6 +583,19 @@ TreeMapChart.defaultProps = {
 
   /****************************************************************/
   //* TreeMap plotOptions
+  treeMapShades: true,
+  treeMapShadeIntensity: 0.5,
+  treeMapReverse: true,
+  treeMapDistribute: false,
+  treeMapFillStroke: false,
+  treeMapColorScale: [
+    {
+      from: 0, //Value indicating range’s upper limit
+      to: 0, //Value indicating range’s lower limit
+      color: undefined, //Background color to fill the range with.
+      foreColor: undefined, //Fore Color of the text if data-labels is enabled
+    },
+  ],
 };
 
 export default TreeMapChart;

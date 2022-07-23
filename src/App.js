@@ -3,65 +3,56 @@ import { TreeMapChart } from './components';
 function App() {
   const chartSeries = [
     {
+      name: 'Desktops',
       data: [
         {
-          x: 'New Delhi',
-          y: 218,
+          x: 'ABC',
+          y: 10,
         },
         {
-          x: 'Kolkata',
-          y: 149,
+          x: 'DEF',
+          y: 60,
         },
         {
-          x: 'Mumbai',
-          y: 184,
+          x: 'XYZ',
+          y: 41,
+        },
+      ],
+    },
+    {
+      name: 'Mobile',
+      data: [
+        {
+          x: 'ABCD',
+          y: 10,
         },
         {
-          x: 'Ahmedabad',
-          y: 55,
+          x: 'DEFG',
+          y: 20,
         },
         {
-          x: 'Bangaluru',
-          y: 84,
+          x: 'WXYZ',
+          y: 51,
         },
         {
-          x: 'Pune',
-          y: 31,
-        },
-        {
-          x: 'Chennai',
-          y: 70,
-        },
-        {
-          x: 'Jaipur',
+          x: 'PQR',
           y: 30,
         },
         {
-          x: 'Surat',
-          y: 44,
+          x: 'MNO',
+          y: 20,
         },
         {
-          x: 'Hyderabad',
-          y: 68,
-        },
-        {
-          x: 'Lucknow',
-          y: 28,
-        },
-        {
-          x: 'Indore',
-          y: 19,
-        },
-        {
-          x: 'Kanpur',
-          y: 29,
+          x: 'CDE',
+          y: 30,
         },
       ],
     },
   ];
+
   return (
     <>
-      <TreeMapChart chartSeries={chartSeries} dataLabelTextStyle={{ colors: ['#fff'] }} />
+      <TreeMapChart chartSeries={chartSeries} dataLabelTextStyle={{ colors: ['#fff'] }} zoomOptions={{ enabled: false }} />
     </>
   );
 }
