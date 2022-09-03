@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/react-apexchart-library"><img src="https://img.shields.io/npm/dt/react-apexchart-library.svg" alt="dt"></a>
   <a href="https://www.npmjs.com/package/react-apexchart-library"><img src="https://img.shields.io/npm/v/react-apexchart-library.svg" alt="ver"></a>
-  <a href="https://github.com/hws522/react-apexchart-library"><img src="https://img.shields.io/badge/-give%20me%20star👍-lightgrey"><img src="https://img.shields.io/github/stars/hws522/react-apexchart-library?style=social"></a>
+  <!--<a href="https://github.com/hws522/react-apexchart-library"><img src="https://img.shields.io/badge/-give%20me%20star👍-lightgrey"><img src="https://img.shields.io/github/stars/hws522/react-apexchart-library?style=social"></a>-->
 </p>
 
 <br>
