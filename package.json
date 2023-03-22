@@ -21,7 +21,7 @@
     "charts",
     "apexcharts"
   ],
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Easy to get started with react + apexchart.",
   "dependencies": {
     "apexcharts": "^3.35.3",
